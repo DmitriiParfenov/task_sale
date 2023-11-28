@@ -61,6 +61,19 @@ class UserModelTestCase(APITestCase):
         # Получение заголовка для авторизации второго пользователя
         self.headers_user_2 = {'Authorization': f'Bearer {response_2.json().get("access")}'}
 
+        # Получение неактивного пользователя
+        self.inactive_user = User.objects.create(
+            email='inactive@test.com',
+            first_name='Petr',
+            last_name='Petrov',
+            is_staff=False,
+            is_superuser=False,
+            is_active=False
+        )
+
+        self.inactive_user.set_password('ChooseBestPassword')
+        self.inactive_user.save()
+
     def tearDown(self) -> None:
         return super().tearDown()
 
@@ -366,7 +379,7 @@ class UserActionTestCase(UserModelTestCase):
 
         # Количество пользователей до удаления
         self.assertTrue(
-            User.objects.count() == 2
+            User.objects.count() == 3
         )
 
         # DELETE-запрос на удаление пользователя
@@ -379,7 +392,7 @@ class UserActionTestCase(UserModelTestCase):
 
         # Количество пользователей после удаления
         self.assertTrue(
-            User.objects.count() == 1
+            User.objects.count() == 2
         )
 
         # Проверка статус кода
@@ -397,7 +410,7 @@ class UserActionTestCase(UserModelTestCase):
 
         # Количество пользователей до удаления
         self.assertTrue(
-            User.objects.count() == 2
+            User.objects.count() == 3
         )
 
         # DELETE-запрос на удаление пользователя
@@ -410,7 +423,7 @@ class UserActionTestCase(UserModelTestCase):
 
         # Количество пользователей после удаления
         self.assertTrue(
-            User.objects.count() == 2
+            User.objects.count() == 3
         )
 
         # Проверка статус кода
