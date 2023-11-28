@@ -68,11 +68,23 @@ class UserModelTestCase(APITestCase):
             last_name='Petrov',
             is_staff=False,
             is_superuser=False,
-            is_active=False
+            is_active=True
         )
-
         self.inactive_user.set_password('ChooseBestPassword')
         self.inactive_user.save()
+        self.data_inactive_user = {
+            'email': 'inactive@test.com',
+            'password': 'ChooseBestPassword'
+        }
+
+        # Аутентификация неактивного пользователя
+        response_3 = self.client.post(
+            self.authentication_url,
+            self.data_inactive_user
+        )
+
+        # Получение заголовка для авторизации неактивного пользователя
+        self.headers_user_inactive = {'Authorization': f'Bearer {response_3.json().get("access")}'}
 
     def tearDown(self) -> None:
         return super().tearDown()
