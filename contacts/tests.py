@@ -492,9 +492,9 @@ class ContactTestCase(ContactModelTestCase):
         )
 
     def test_user_can_delete_contacts_correctly(self):
-        """Авторизованные пользователи могут удалять объекты модели Connects корректно."""
+        """Авторизованные пользователи могут удалять объекты модели Contacts корректно."""
 
-        # Количество объектов модели Connects до удаления
+        # Количество объектов модели Contact до удаления
         self.assertTrue(
             Contact.objects.count() == 2
         )
