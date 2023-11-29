@@ -1,7 +1,8 @@
 from rest_framework import viewsets
 
 from contacts.models import Contact
-from contacts.permissions import IsActiveAndIsOwner
+from products.permissions import IsActiveAndIsOwner
+from products.models import Product
 from products.serializers import ProductSerializer, ProductListSerializer
 
 
@@ -10,7 +11,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     """Для создания, удаления, изменения и получения объектов модели Product."""
 
     permission_classes = (IsActiveAndIsOwner,)
-    queryset = Contact.objects.all()
+    queryset = Product.objects.all()
     default_serializer = ProductSerializer
     serializers = {
         'list': ProductListSerializer,
