@@ -72,4 +72,3 @@ class SaleDeleteAPIView(generics.DestroyAPIView):
     serializer_class = SaleSerializer
     queryset = Sale.objects.all()
     permission_classes = (IsActiveAndIsOwner,)
-

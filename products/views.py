@@ -1,8 +1,7 @@
 from rest_framework import viewsets
 
-from contacts.models import Contact
-from products.permissions import IsActiveAndIsOwner
 from products.models import Product
+from products.permissions import IsActiveAndIsOwner
 from products.serializers import ProductSerializer, ProductListSerializer
 
 

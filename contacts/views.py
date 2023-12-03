@@ -27,7 +27,3 @@ class ContactViewSet(viewsets.ModelViewSet):
 
     def get_serializer_class(self):
         return self.serializers.get(self.action, self.default_serializer)
-
-
-
-

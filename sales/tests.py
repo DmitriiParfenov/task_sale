@@ -1,4 +1,3 @@
-from django.test import TestCase
 from rest_framework import status
 
 from contacts.models import Contact
@@ -691,7 +690,7 @@ class SaleGetListTestCase(SaleModelTestCase):
         super().setUp()
 
         # Получение маршрутов
-        self.sale_list_url = f'/sales/'
+        self.sale_list_url = '/sales/'
 
     def test_user_can_get_sale_correctly(self):
         """Активные пользователи могут получить информацию об объектах модели Sale корректно."""
