@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Contact(models.Model):
-    email = models.CharField(max_length=150, verbose_name='email')
+    email = models.CharField(max_length=150, verbose_name='email', unique=True)
     country = models.CharField(max_length=150, verbose_name='страна')
     city = models.CharField(max_length=150, verbose_name='город')
     street = models.CharField(max_length=150, verbose_name='улица')
