@@ -43,5 +43,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
-    path('user/', include('users.urls', namespace='users'))
+    path('contacts/', include('contacts.urls', namespace='contacts')),
+    path('products/', include('products.urls', namespace='products')),
+    path('sales/', include('sales.urls', namespace='sales')),
+    path('user/', include('users.urls', namespace='user')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
