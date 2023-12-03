@@ -33,12 +33,12 @@ class ContactModelTestCase(UserModelTestCase):
 
         # Данные для создания Contact
         self.contact_create_data = {
-            'email': 'test@test.com',
+            'email': 'another@test.com',
             'country': 'Россия',
             'city': 'Воронеж',
             'street': 'Воронежская',
             'number': '2',
-            'contact_user': 'inactive@test.com'
+            'contact_user': 'another@test.com'
         }
 
         # Данные для обновления Contact
