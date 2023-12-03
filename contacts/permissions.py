@@ -1,4 +1,3 @@
-from rest_framework import permissions
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 
 
@@ -8,6 +7,7 @@ class IsActiveAndIsOwner(BasePermission):
     Пользователь может видеть список всех контактов без возможности их как-то редактировать или удалять, если он не
     является их владельцем.
     """
+
     def has_permission(self, request, view):
         if request.user.is_active:
             return True
